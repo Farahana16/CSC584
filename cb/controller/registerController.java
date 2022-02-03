@@ -35,11 +35,11 @@ public class registerController extends HttpServlet {
 		Customer c = new Customer();
 		
 		//retrieve input and set name, u/name, phone, email, p/w
-		c.setName(request.getParameter("name"));
-		c.setUsername(request.getParameter("username"));
-		c.setPhoneNum(request.getParameter("phoneNum"));
-		c.setEmail(request.getParameter("email"));		
-		c.setPassword(request.getParameter("password"));
+		c.setName(request.getParameter("custName"));
+		c.setUsername(request.getParameter("custUsername"));
+		c.setPhoneNum(request.getParameter("custPhoneNum"));
+		c.setEmail(request.getParameter("custEmail"));		
+		c.setPassword(request.getParameter("custPwd"));
 				
 		c = CustomerDAO.getUser(c);
 		//check if user exists
