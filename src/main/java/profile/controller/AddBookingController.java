@@ -62,7 +62,7 @@ public class AddBookingController extends HttpServlet {
 			dao.addBooking(bk);
 			
 			request.setAttribute("bookings", BookingDAO.getAllBooking());
-			RequestDispatcher view = request.getRequestDispatcher("ListBooking.jsp");
+			RequestDispatcher view = request.getRequestDispatcher("Payment.jsp");
 			view.forward(request, response);
 		}
 		else {
