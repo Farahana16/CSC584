@@ -28,10 +28,10 @@ public class BookingDAO {
 	public boolean checkRoom(String checkIn, int campID) {
 		this.checkIn = checkIn;
 		this.campID = campID;
-		boolean available = false;
+		boolean available = true;
 		
 		try {
-con= ConnectionManager.getConnection();
+			con= ConnectionManager.getConnection();
 			
 			//create statement
 			ps = con.prepareStatement("SELECT * FROM booking WHERE checkInDate = ? AND campID = ?");
@@ -39,7 +39,7 @@ con= ConnectionManager.getConnection();
 			ps.setInt(2, campID);
 			
 			rs = ps.executeQuery();
-			if (!rs.next()) {
+			if (rs.next()) {
 				available = false;
 			}
 			
