@@ -34,7 +34,7 @@ public class BookingDAO {
 con= ConnectionManager.getConnection();
 			
 			//create statement
-			ps = con.prepareStatement("SELECT * FROM custservice WHERE checkInDate = ? AND campID = ?");
+			ps = con.prepareStatement("SELECT * FROM booking WHERE checkInDate = ? AND campID = ?");
 			ps.setString(1, checkIn);
 			ps.setInt(2, campID);
 			
