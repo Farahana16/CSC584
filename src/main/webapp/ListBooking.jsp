@@ -57,7 +57,7 @@
                         <div class="col-xl-2 col-lg-2">
                             <div class="logo-img">
                                 <a href="index.html">
-                                    <img src="img/logo2.jpeg" alt="Company Logo" style="height: 50px;">
+                                    <img src="img/logo.jpg" alt="Company Logo" style="height: 50px;">
                                 </a>
                             </div>
                         </div>
