@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.RequestDispatcher;
 
-import booking.dao.BookingDAO;
+import campbooking.dao.BookingDAO;
 
 /**
  * Servlet implementation class DeleteBookingController
@@ -36,7 +36,6 @@ public class DeleteBookingController extends HttpServlet {
 		int bookingId = Integer.parseInt(request.getParameter("id"));
 		dao.deleteBooking(bookingId);
 		
-		request.setAttribute("bookings", BookingDAO.getAllBooking());
 		RequestDispatcher view = request.getRequestDispatcher("ListBooking.jsp");
 		view.forward(request, response);
 	}
