@@ -68,14 +68,8 @@ public class loginLogoutController extends HttpServlet {
 				session.setAttribute("sessionId", cust.getCustId());
 				System.out.println(cust.getCustId());
 				session.setAttribute("sessionEmail", cust.getEmail());
-				session.setAttribute("sessionRole", cust.getRole());
+
 				
-				if(cust.getRole().equals("customer")) {
-					request.setAttribute("cust", CustomerDAO.getUserByEmail(cust.getEmail()));
-					//request.setAttribute("prods", ProductDAO.getSupplierProducts());
-					RequestDispatcher view = request.getRequestDispatcher("#.jsp");
-					view.forward(request, response);
-				}
 				
 			}
 			//redirect to invalid login.jsp if user isnt valid
