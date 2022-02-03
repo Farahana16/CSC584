@@ -150,7 +150,7 @@
                                 rooms and Suites</h3>
                         <ul>
                             <li>Luxaries condition</li>
-                            <li>5 Adults & 3 Children size</li>
+                            <li>4 Adults & 4 Children size</li>
                             <li>Fit for huge family</li>
                         </ul>
                         <a href="#" class="book_now">book now</a>
