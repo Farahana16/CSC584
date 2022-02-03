@@ -86,7 +86,7 @@ public class BookingDAO {
 		}
 	}
 	
-	//get all custService
+	//get all Booking
 	public static List<Booking> getAllBooking(){
 		List<Booking> bookings = new ArrayList<Booking>();
 		
@@ -123,25 +123,25 @@ public class BookingDAO {
 	}
 	
 	//get all by id
-	public static Booking getBookingById(int bookingID) {
+	public static Booking getBookingById(int custID) {
 		Booking bk = new Booking();
 		
 		try {
 			con= ConnectionManager.getConnection();
 			
 			//create statement
-			ps = con.prepareStatement("SELECT * FROM custservice WHERE bookingID = ?");
-			ps.setInt(1, bookingID);
+			ps = con.prepareStatement("SELECT * FROM b join camp c  on (b.campID = c.campID) WHERE custID = ? ORDER BY bookingID");
+			ps.setInt(1, custID);
 			
 			rs = ps.executeQuery();
 			if(rs.next()) {
-				bk.setBookingID(bookingID);
+				bk.setBookingID(rs.getInt("bookingID"));
 				bk.setBookingDate(rs.getDate("bookingDate"));
 				bk.setCheckIn(rs.getString("checkInDate"));
 				bk.setCheckOut(rs.getString("checkOutDate"));
 				bk.setNumOfCust(rs.getInt("numOfCust"));
 				bk.setNumOfDays(rs.getInt("numOfDays"));
-				bk.setCustID(rs.getInt("custID"));
+				bk.setCustID(custID);
 				bk.setCampID(rs.getInt("campID"));
 			}
 			//close connection
@@ -152,7 +152,7 @@ public class BookingDAO {
 		return bk;
 	}
 
-	//delete custService
+	//delete Booking
 	public void deleteBooking(int bookingID) {
 		try {
 			con = ConnectionManager.getConnection();
