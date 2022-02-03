@@ -1,11 +1,6 @@
 package booking.controller;
 
-import java.lang.*;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,8 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.RequestDispatcher;
 
-import booking.dao.BookingDAO;
-import booking.model.Booking;
+import campbooking.dao.BookingDAO;
+import campbooking.model.Booking;
 
 /**
  * Servlet implementation class AddBookingController
@@ -42,7 +37,6 @@ public class AddBookingController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		//TODO Auto-generated method stub
 		
-		PrintWriter out = response.getWriter();
 		Booking bk = new Booking();
 
 		String checkin = request.getParameter("checkin");
@@ -61,7 +55,6 @@ public class AddBookingController extends HttpServlet {
 			bk.setCampID(campId);
 			dao.addBooking(bk);
 			
-			request.setAttribute("bookings", BookingDAO.getAllBooking());
 			RequestDispatcher view = request.getRequestDispatcher("Payment.jsp");
 			view.forward(request, response);
 		}
