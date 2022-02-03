@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.RequestDispatcher;
 
-import booking.dao.BookingDAO;
+import campbooking.dao.BookingDAO;
 
 /**
  * Servlet implementation class ListBookingController
@@ -34,9 +34,8 @@ public class ListBookingController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		//TODO Auto-generated method stub
-		//int custid = session.getAttribute("SES_ID");
-		int custid = Integer.parseInt(request.getParameter("custid"));
-		request.setAttribute("bookings", BookingDAO.getBookingById(custid));
+		int custID = Integer.parseInt(request.getParameter("custid"));
+		request.setAttribute("bookings", BookingDAO.getAllBookingById(custID));
 		RequestDispatcher view = request.getRequestDispatcher("ListBooking.jsp");
 		view.forward(request, response); 
 	}
@@ -47,9 +46,8 @@ public class ListBookingController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		//TODO Auto-generated method stub
 		
-		//int custID = session.getAttribute("SES_ID");
-		int custid = Integer.parseInt(request.getParameter("custid"));
-		request.setAttribute("bookings", BookingDAO.getBookingById(custid));
+		int custID = Integer.parseInt(request.getParameter("custid"));
+		request.setAttribute("bookings", BookingDAO.getAllBookingById(custID));
 		RequestDispatcher view = request.getRequestDispatcher("ListBooking.jsp");
 		view.forward(request, response); 
 	}
